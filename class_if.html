@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스제어_조언문기초</title>
+    <link rel="stylesheet" href="./styles/reset.css" class="c">
+    <script src="./scripts/class_if.js" defer></script>
+    <style>
+        .target_showHide {display:none;}
+        .design_set1 {
+            border-bottom : 1px solid #000;
+            background-color : #ff0;
+            padding:15px 6px;
+        }
+        .wish_em {
+            width:25px; height:25px;
+            border-radius:100%;
+            border:1px solid #000;
+            /* background-color:red; */
+            /* color:white; */
+            text-align:center; line-height:100%;
+        }
+        .wish {
+            border:none;
+            background-color:red;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <ul class="contents">
+        <li><a href="#">내용1</a></li>
+        <li><a href="#">내용2</a></li>
+        <li><a href="#">내용3</a></li>
+        <li><a href="#">내용4</a></li>
+    </ul>
+    <hr>
+    <button type="button" id="search_btn">검색</button>
+    <div class="search_open_wrap">
+        <input type="text" name="search_txt" id="search_txt" placeholder="검색어를 입력하세요">
+        <button type="submit" id="search_txt_btn">검색하기</button>
+    </div>
+    <hr>
+    <button type="button" id="wish" class="wish_em">♡</button>
+    <hr>
+    <button type="button" id="print_btn">인쇄</button>
+</body>
+</html>
