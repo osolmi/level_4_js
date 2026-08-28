@@ -24,7 +24,7 @@ colorSelect.addEventListener('change',()=>{
     //DOM.dataset.속성명 = DOM.options[DOM.selectedIndex].text;
     colorSelect.dataset.color = colorSelect.options[colorSelect.selectedIndex].text;
     opt_y(colorSelect.dataset.color, sizeSelect.dataset.size);
-})
+});
 
 //크기 선택 시 선택된 값 data 대입
 sizeSelect.addEventListener('change',()=>{
@@ -37,14 +37,20 @@ opt_result.style.display = 'none';
 console.log(Boolean(colorSelect.dataset.color))
 
 function opt_y(opt1, opt2){
-    Boolean(colorSelect.dataset.color) && Boolean(sizeSelect.dataset.size) ? (()=>{
-        opt_result.style.display = 'flex'
-        result_val.textContent = `${opt1} / ${opt2}`;
-        result_num.value = 1;
-        result_price.textContent = price.toLocaleString('ko-kr');
-        totalPrice.children[1].textContent = price.toLocaleString('ko-kr')+'원';
-        order_btn.style.backgroundColor = '#00A1FF'
-        return;
-    })() : console.log('false');
+    console.log('넘어온 색상값:', opt1); // 여기서 undefined가 찍히면 colorSelect.dataset.color가 비어있는 것입니다!
+    console.log('넘어온 사이즈값:', opt2);
+    Boolean(colorSelect.dataset.color) && Boolean(sizeSelect.dataset.size)
+    ? (()=>{
+        if(sizeSelect.selectedIndex > 0 && colorSelect.selectedIndex > 0){
+            opt_result.style.display = 'flex';
+            result_val.textContent = `색상 : ${opt1} / 사이즈 : ${opt2}`;
+            result_num.value = 1;
+            result_price.textContent = price.toLocaleString('ko-kr');
+            totalPrice.children[1].textContent = price.toLocaleString('ko-kr')+'원';
+            order_btn.style.backgroundColor = '#00A1FF'
+            return;
+        }
+    })()
+    : console.log('false');
 }
 
