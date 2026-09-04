@@ -31,3 +31,43 @@ for(let i=0; i<animeDB.length; i++){
     <a href="#"><img src="${animeDB[i].poster}" alt=""></a>
     `
 }
+//--------------------------------------------------------26/09/04
+//무비차트 + swiper
+//swiper-slide 반복 생성해서 swiper-wrapper에 붙여넣기
+//swiper 플러그인 함수 연결은 swiper 최종 연결
+const chart_swiper = document.querySelector('.chart_swiper');
+
+const chart_swiper_func = new Swiper(chart_swiper, {
+    slidesPerView: 2,
+    spaceBetween: 10
+});//플러그인연결
+
+for(let i=0; i<5; i++){
+    const chart_slide = document.createElement('div');
+    chart_slide.classList.add('swiper-slide');
+    
+    chart_slide.innerHTML = `<p class="num">${movieDB[i].id}위</p>`;
+    chart_slide.innerHTML += `<h3>${movieDB[i].title}</h3>`;
+    chart_slide.innerHTML += `<p class="rating">평점 : ${movieDB[i].rating}</p>`;
+    chart_slide.innerHTML += `<p class="story">${movieDB[i].summary}</p>`;
+    chart_slide.style.backgroundImage = `url(${movieDB[i].poster})`;
+    chart_swiper.children[0].appendChild(chart_slide);
+}
+
+const chart_swiper_anime = document.querySelector('.chart_swiper_anime');
+
+const chart_swiper_anime_func = new Swiper(chart_swiper_anime, {
+    slidesPerView: 1, loop: true, effect: 'cube', autoplay: { delay: 3000, disableOnInteraction: false }
+});
+
+for(let i=0; i<5; i++){
+    const chart_slide_anime = document.createElement('div');
+    chart_slide_anime.classList.add('swiper-slide');
+
+    chart_slide_anime.innerHTML = `<p class="num">${animeDB[i].id}위</p>`;
+    chart_slide_anime.innerHTML += `<h3>${animeDB[i].title}</h3>`;
+    chart_slide_anime.innerHTML += `<p class="rating">평점 : ${animeDB[i].rating}</p>`;
+    chart_slide_anime.innerHTML += `<p class="story">${animeDB[i].summary}</p>`;
+    chart_slide_anime.style.backgroundImage = `url(${animeDB[i].poster})`;
+    chart_swiper_anime.children[0].appendChild(chart_slide_anime);
+}

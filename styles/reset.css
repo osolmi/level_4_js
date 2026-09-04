@@ -36,6 +36,15 @@ input[type=number] {
     -moz-appearance:none;
     margin:0;
 }
+
+@font-face {
+    font-family: 'Nohemi';
+    src: url('./') format('woff2'); /* web-tt 안의 woff2 선택 */
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
 @font-face {
     font-family: 'Pretendard';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2') format('woff2');
