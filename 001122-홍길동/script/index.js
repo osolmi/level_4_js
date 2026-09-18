@@ -104,4 +104,34 @@ $nav.on('mouseout',function(){
 $('.notice_gallery .title a').on('click',function(){
     $('.notice_gallery .title a').removeClass('active');
     $(this).addClass('active');
+
+    let $i = $(this).index(); //현재 클릭한 대상 인덱스 변수저장
+    $('.notice_gallery .contents > * ').hide();//모든 내용 숨기기
+    // $('.notice_gallery .contents > * ').eq($i).show();//block
+    $('.notice_gallery .contents > * ').eq($i).css('display', 'flex');
+    //eq => 몇번째 인덱스에 헤당하는 요소인지 세는 제이쿼리 함수
 })
+
+//제이쿼리 슬라이드
+let count = 0; //초기값 0으로 시작해서 hesoslides의 개수만큼 증가
+const slideTimer = setInterval(function(){
+    count++; //3초마다 1 증가
+    // if(count > 2){count - 0}
+    if(count > 2){count = 0}
+    $('.hero_wrapper').css('transform', `translateY(-${count*300}px)`);
+    // $('.hero_wrapper').css('transform', 'translateY(-'+(count*300)+'px)';
+    //기존 js css에서 주로 다루는 transition 0.4s + transform 애니메이션 묶음 전용 제이쿼리 함수
+/*     $('.hero_wrapper').animate({
+        top:-(count*300)+'px',
+    },400) */
+}, 3000);
+// let count = 0; //초기값 0으로 시작해서 hesoslides의 개수만큼 증가
+// heroWrap.style.transition = 'transform 0.6s';
+// const slideTimer = setInterval(() => {
+//     count++; //3초마다 1 증가
+
+//     console.log(count*300);
+//     // if(count > 2){count - 0}
+//     if(count > heroSlide.length-1){count = 0}
+//     heroWrap.style.transform = `translateY(-${count*300}px)`;
+// }, 3000);
